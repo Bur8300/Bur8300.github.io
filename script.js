@@ -8,7 +8,10 @@ const images = [
     'assets/image copy 5.png',
     'assets/image copy 6.png',
     'assets/image copy 7.png',
-    'assets/image copy 8.png'
+    'assets/image copy 8.png',
+    'assets/image copy 9.png',
+    "assets/image copy 10.png",
+    "assets/image copy 11.png"
 ];
 
 let noClickCount = 0;
