@@ -124,10 +124,38 @@
                 <p class="font-display text-xl text-gray-600">Biliyordum! 🎉</p>
             </div>
 
-            <div id="gallery-grid" class="gallery-grid w-full">
-                <!-- Images will be injected here by JS -->
+            <!-- Slideshow Container -->
+            <div id="slideshow-container"
+                class="relative w-full aspect-[4/5] max-w-sm mx-auto bg-white/50 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden p-2">
+                <img id="slideshow-img" src="" alt="Valentine Memory"
+                    class="w-full h-full object-cover rounded-lg transition-opacity duration-500 opacity-0 cursor-pointer hover:scale-105 transition-transform duration-500">
+
+                <!-- Navigation Buttons -->
+                <button id="prev-btn"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-primary hover:bg-white transition-colors shadow-lg">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <button id="next-btn"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-primary hover:bg-white transition-colors shadow-lg">
+                    <span class="material-icons">chevron_right</span>
+                </button>
+
+                <!-- Indicators -->
+                <div id="slideshow-indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
+                    <!-- Indicators injected by JS -->
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Image Zoom Modal -->
+    <div id="image-modal"
+        class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
+        <button id="close-modal" class="absolute top-4 right-4 text-white hover:text-primary transition-colors">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <img id="modal-img" src="" alt="Full size memory"
+            class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
     </div>
 
     <!-- Overlay Gradient -->

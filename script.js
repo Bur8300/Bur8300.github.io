@@ -45,13 +45,81 @@ function increaseYesButtonSize() {
     yesBtn.style.padding = `${parseFloat(window.getComputedStyle(yesBtn).paddingTop) * 1.5}px ${parseFloat(window.getComputedStyle(yesBtn).paddingRight) * 1.5}px`;
 }
 
+let currentImageIndex = 0;
+const slideshowImg = document.getElementById('slideshow-img');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const indicatorsContainer = document.getElementById('slideshow-indicators');
+
+function updateSlideshow() {
+    // Fade out
+    slideshowImg.style.opacity = '0';
+
+    setTimeout(() => {
+        slideshowImg.src = images[currentImageIndex];
+        // Fade in
+        slideshowImg.style.opacity = '1';
+        updateIndicators();
+    }, 500);
+}
+
+function updateIndicators() {
+    indicatorsContainer.innerHTML = '';
+    images.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `w-2 h-2 rounded-full transition-colors ${index === currentImageIndex ? 'bg-primary' : 'bg-primary/30'}`;
+        indicatorsContainer.appendChild(dot);
+    });
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateSlideshow();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateSlideshow();
+}
+
+// Modal Elements
+const modal = document.getElementById('image-modal');
+const modalImg = document.getElementById('modal-img');
+const closeModalBtn = document.getElementById('close-modal');
+
+// Slideshow Image Click - Open Modal
+slideshowImg.addEventListener('click', () => {
+    modalImg.src = images[currentImageIndex];
+    modal.classList.remove('hidden');
+    // Stop autoplay when modal is open
+    clearInterval(autoPlayInterval);
+});
+
+// Close Modal
+function closeModal() {
+    modal.classList.add('hidden');
+    // Restart autoplay
+    autoPlayInterval = setInterval(nextImage, 3000);
+}
+
+closeModalBtn.addEventListener('click', closeModal);
+
+// Close on background click
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+let autoPlayInterval;
+
 function handleYesClick() {
     // Hide main card
     mainCard.style.display = 'none';
-    
+
     // Show gallery container
     galleryContainer.classList.remove('hidden');
-    
+
     // Trigger confetti
     jsConfetti.addConfetti({
         emojis: ['💖', '🥰', '🌸', '💍', '💕'],
@@ -59,16 +127,13 @@ function handleYesClick() {
         confettiNumber: 100,
     });
 
-    // Setup gallery
-    images.forEach(src => {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        const img = document.createElement('img');
-        img.src = src;
-        img.loading = 'lazy';
-        div.appendChild(img);
-        galleryGrid.appendChild(div);
-    });
+    // Initialize Slideshow
+    slideshowImg.src = images[0];
+    setTimeout(() => slideshowImg.style.opacity = '1', 50); // Small delay to ensure transition works
+    updateIndicators();
+
+    // Auto play
+    autoPlayInterval = setInterval(nextImage, 3000);
 
     // Add continuous confetti
     setInterval(() => {
@@ -83,3 +148,6 @@ function handleYesClick() {
 // Add event listeners
 noBtn.addEventListener('click', handleNoClick);
 yesBtn.addEventListener('click', handleYesClick);
+prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+
