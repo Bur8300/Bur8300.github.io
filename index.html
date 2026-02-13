@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Benimle Çıkar Mısın Bilge? 💖</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2b5b",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221015",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"],
+                        "script": ["Dancing Script", "cursive"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JS Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark h-screen w-full flex items-center justify-center p-4 relative">
+
+    <!-- Background Decorative Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <span class="material-icons floating-heart text-primary/20 text-4xl"
+            style="left: 10%; animation-delay: 0s;">favorite</span>
+        <span class="material-icons floating-heart text-primary/30 text-2xl"
+            style="left: 30%; animation-delay: 2s;">favorite</span>
+        <span class="material-icons floating-heart text-primary/10 text-5xl"
+            style="left: 70%; animation-delay: 4s;">favorite</span>
+        <span class="material-icons floating-heart text-primary/25 text-3xl"
+            style="left: 85%; animation-delay: 1s;">favorite</span>
+        <span class="material-icons floating-heart text-primary/15 text-6xl"
+            style="left: 45%; animation-delay: 3s;">favorite</span>
+        <span class="material-icons floating-heart text-primary/40 text-lg"
+            style="left: 15%; animation-delay: 5s;">favorite</span>
+    </div>
+
+    <!-- Main Mobile Container -->
+    <main class="w-full max-w-sm flex flex-col items-center justify-center gap-6 z-10" id="main-card">
+        <!-- Glassmorphism Card -->
+        <div class="glass-card w-full rounded-xl p-8 flex flex-col items-center shadow-2xl space-y-8">
+            <!-- Image Container -->
+            <div class="w-full aspect-square rounded-lg overflow-hidden relative shadow-inner bg-white/50">
+                <!-- Using one of the uploaded images as the main image -->
+                <img alt="Romantic Valentine Setup" class="w-full h-full object-cover" src="assets/image.png" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="text-center space-y-3">
+                <h2 class="font-script text-4xl text-primary leading-tight">Bilge...</h2>
+                <h1 class="font-display font-extrabold text-2xl text-primary/80 dark:text-white/90">
+                    Will you be my Valentine?
+                </h1>
+            </div>
+
+            <!-- Button Actions -->
+            <div class="w-full flex flex-col gap-4 mt-4">
+                <button id="yes-btn"
+                    class="pulse-soft w-full py-4 bg-primary text-white rounded-full font-display font-bold text-lg shadow-lg shadow-primary/30 flex items-center justify-center gap-2 transition-transform active:scale-95">
+                    Evet! 💖
+                </button>
+                <button id="no-btn"
+                    class="w-full py-2 text-primary/40 dark:text-primary/60 font-display font-medium text-sm rounded-full hover:bg-white/10 transition-colors">
+                    Hayır
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="flex flex-col items-center gap-2 opacity-60">
+            <p class="text-[10px] text-primary/50 dark:text-primary/30 font-display italic">Made with love for you</p>
+        </div>
+    </main>
+
+    <!-- Celebration / Gallery Screen (Hidden Initially) -->
+    <div id="gallery-container"
+        class="hidden absolute inset-0 z-20 bg-background-light dark:bg-background-dark flex flex-col items-center">
+        <div class="w-full max-w-2xl p-6 flex flex-col items-center gap-8">
+            <div class="text-center space-y-4 pt-10">
+                <h1 class="font-script text-5xl text-primary animate-bounce">Seni Seviyorum Bilge! ❤️</h1>
+                <p class="font-display text-xl text-gray-600">Biliyordum! 🎉</p>
+            </div>
+
+            <div id="gallery-grid" class="gallery-grid w-full">
+                <!-- Images will be injected here by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay Gradient -->
+    <div class="fixed inset-0 pointer-events-none bg-radial-gradient from-transparent via-transparent to-primary/5">
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

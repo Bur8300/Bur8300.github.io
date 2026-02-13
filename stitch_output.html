@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bilge'ye Sevgililer Günü Daveti</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Dancing+Script:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2b5b",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221015",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"],
+                        "script": ["Dancing Script", "cursive"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+        }
+        .floating-heart {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1.5) rotate(45deg); opacity: 0; }
+        }
+        .pulse-soft {
+            animation: pulse-soft 2s infinite;
+        }
+        @keyframes pulse-soft {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(238, 43, 91, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(238, 43, 91, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(238, 43, 91, 0); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark h-screen w-full flex items-center justify-center p-4">
+<!-- Background Decorative Elements -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden">
+<span class="material-icons floating-heart text-primary/20 text-4xl" style="left: 10%; animation-delay: 0s;">favorite</span>
+<span class="material-icons floating-heart text-primary/30 text-2xl" style="left: 30%; animation-delay: 2s;">favorite</span>
+<span class="material-icons floating-heart text-primary/10 text-5xl" style="left: 70%; animation-delay: 4s;">favorite</span>
+<span class="material-icons floating-heart text-primary/25 text-3xl" style="left: 85%; animation-delay: 1s;">favorite</span>
+<span class="material-icons floating-heart text-primary/15 text-6xl" style="left: 45%; animation-delay: 3s;">favorite</span>
+<span class="material-icons floating-heart text-primary/40 text-lg" style="left: 15%; animation-delay: 5s;">favorite</span>
+</div>
+<!-- Main Mobile Container -->
+<main class="w-full max-w-sm flex flex-col items-center justify-center gap-6 z-10">
+<!-- Glassmorphism Card -->
+<div class="glass-card w-full rounded-xl p-8 flex flex-col items-center shadow-2xl space-y-8">
+<!-- Image Container -->
+<div class="w-full aspect-square rounded-lg overflow-hidden relative shadow-inner bg-white/50">
+<img alt="Romantic Valentine Setup" class="w-full h-full object-cover" data-alt="Cute romantic illustration with hearts and cozy vibes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE9WwKnEWudUYRkfsa6_ZxAJps8aT3RLOeXFlZoyPiczMSDUDcFtkwOCY9RAJQ0vX5La4j6dknxSJ9QUfcmDn0u8tcOTyobHhABwsj8XLGmY6HaTCYobw4FcFudzKsi_apeX1l_JkfvStNWYrE6R-hAz5sfml_4k-cudb71XDn1H7ENij2g9tsRA6PiMMtYjmNFD0zfymXnehanquF07aLqjIdY3lfWgB672zkkjZs0KiYeSinBCR1AihWtkbwg_ocJaIqklviPwyR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<!-- Text Content -->
+<div class="text-center space-y-3">
+<h2 class="font-script text-4xl text-primary leading-tight">Bilge...</h2>
+<h1 class="font-display font-extrabold text-2xl text-primary/80 dark:text-white/90">
+                    Will you be my Valentine?
+                </h1>
+</div>
+<!-- Button Actions -->
+<div class="w-full flex flex-col gap-4 mt-4">
+<button class="pulse-soft w-full py-4 bg-primary text-white rounded-full font-display font-bold text-lg shadow-lg shadow-primary/30 flex items-center justify-center gap-2 transition-transform active:scale-95">
+                    Evet! 💖
+                </button>
+<button class="w-full py-2 text-primary/40 dark:text-primary/60 font-display font-medium text-sm rounded-full hover:bg-white/10 transition-colors">
+                    Hayır
+                </button>
+</div>
+</div>
+<!-- Footer / Location -->
+<div class="flex flex-col items-center gap-2 opacity-60">
+<div class="flex items-center gap-1 text-primary/70 dark:text-primary/40">
+<span class="material-icons text-sm">location_on</span>
+<span class="font-display text-xs uppercase tracking-widest font-semibold" data-location="Istanbul">Istanbul</span>
+</div>
+<p class="text-[10px] text-primary/50 dark:text-primary/30 font-display italic">Made with love for you</p>
+</div>
+</main>
+<!-- Overlay Gradient for better depth -->
+<div class="fixed inset-0 pointer-events-none bg-radial-gradient from-transparent via-transparent to-primary/5"></div>
+</body></html>
