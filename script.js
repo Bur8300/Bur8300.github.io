@@ -148,10 +148,11 @@ function handleYesClick() {
     }, 3000);
 
     // Play Music (Local Audio)
-    const audio = new Audio('song.m4a');
-    audio.loop = true;
-    audio.volume = 1.0;
-    audio.play().catch(error => console.log("Audio play failed:", error));
+    const audio = document.getElementById('bg-music');
+    if (audio) {
+        audio.volume = 1.0;
+        audio.play().catch(error => console.log("Audio play failed:", error));
+    }
 }
 
 // Add event listeners
