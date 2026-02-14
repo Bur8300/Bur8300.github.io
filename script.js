@@ -148,7 +148,7 @@ function handleYesClick() {
     }, 3000);
 
     // Play Music (Local Audio)
-    const audio = new Audio('Oğuzhan_Koç_Ayy_Ben_Hala_Rüyada_Official_Audio_Esen_Müzik.m4a');
+    const audio = new Audio('song.m4a');
     audio.loop = true;
     audio.volume = 1.0;
     audio.play().catch(error => console.log("Audio play failed:", error));
